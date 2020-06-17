@@ -92,7 +92,7 @@
       <slicing>
         <discriminator>
           <type value="pattern" />
-          <path value="system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -103,12 +103,14 @@
       <sliceName value="sct" />
       <min value="1" />
       <max value="1" />
+      <patternCoding>
+        <system value="http://snomed.info/sct" />
+      </patternCoding>
       <mustSupport value="true" />
     </element>
     <element id="Procedure.category.coding:sct.system">
       <path value="Procedure.category.coding.system" />
       <min value="1" />
-      <patternUri value="http://snomed.info/sct" />
       <mustSupport value="true" />
     </element>
     <element id="Procedure.category.coding:sct.code">
@@ -133,7 +135,7 @@
       <slicing>
         <discriminator>
           <type value="pattern" />
-          <path value="system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -144,6 +146,9 @@
       <path value="Procedure.code.coding" />
       <sliceName value="ops" />
       <max value="1" />
+      <patternCoding>
+        <system value="http://fhir.de/CodeSystem/dimdi/ops" />
+      </patternCoding>
       <mustSupport value="true" />
       <binding>
         <strength value="required" />
@@ -173,7 +178,6 @@
     <element id="Procedure.code.coding:ops.system">
       <path value="Procedure.code.coding.system" />
       <min value="1" />
-      <patternUri value="http://fhir.de/CodeSystem/dimdi/ops" />
       <mustSupport value="true" />
     </element>
     <element id="Procedure.code.coding:ops.version">
@@ -190,6 +194,9 @@
       <path value="Procedure.code.coding" />
       <sliceName value="sct" />
       <max value="1" />
+      <patternCoding>
+        <system value="http://snomed.info/sct" />
+      </patternCoding>
       <mustSupport value="true" />
       <binding>
         <strength value="required" />
@@ -199,7 +206,6 @@
     <element id="Procedure.code.coding:sct.system">
       <path value="Procedure.code.coding.system" />
       <min value="1" />
-      <patternUri value="http://snomed.info/sct" />
       <mustSupport value="true" />
     </element>
     <element id="Procedure.code.coding:sct.code">
@@ -209,8 +215,6 @@
     </element>
     <element id="Procedure.subject">
       <path value="Procedure.subject" />
-      <min value="1" />
-      <max value="1" />
       <type>
         <code value="Reference" />
         <profile value="https://www.medizininformatik-initiative.de/fhir/core/StructureDefinition/MII-Reference" />
